@@ -1,14 +1,13 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
-import { TemplateName } from './TemplateName';
 
 describe('<TemplateName />', () => {
-  it('should mount', () => {
-    render(<TemplateName />);
+  it('should work', () => {
+    const rawExampleInput = `
 
-    const templateName = screen.getByTestId('TemplateName');
+`;
+    const rawInput = `
 
-    expect(templateName).toBeInTheDocument();
+`;
   });
 });
