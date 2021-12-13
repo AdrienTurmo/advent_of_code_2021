@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Day8 } from './Day8';
+import { splitLines } from 'utils/Utils';
 
 describe('<Day8 />', () => {
   it('should work', () => {
@@ -221,9 +222,7 @@ cebfa aebcfg cgbfa egbf ceb cbgfeda ebcadg bfagdc eacfd be | ebfgac ebc bagecf g
 `;
 
     const simpleRawInput = 'acedgfb cdfbe gcdfa fbcad dab cefabd cdfgeb eafb cagedb ab | cdfeb fcadb cdfeb cdbaf';
-    // const answer1 = rawExampleInput
-    //   .split('\n')
-    //   .filter((value) => value !== '')
+    // const answer1 = splitLines(rawExampleInput)
     //   .map((value) =>
     //     value.split(' | ').map(
     //       (toto) =>
@@ -251,9 +250,7 @@ cebfa aebcfg cgbfa egbf ceb cbgfeda ebcadg bfagdc eacfd be | ebfgac ebc bagecf g
       [45, 9],
     ]);
 
-    const inputs = rawInput
-      .split('\n')
-      .filter((value) => value !== '')
+    const inputs = splitLines(rawInput)
       .map((value) => value.split(' | ').map((toto) => toto.split(' ')));
 
     const results = inputs.map((line) => {

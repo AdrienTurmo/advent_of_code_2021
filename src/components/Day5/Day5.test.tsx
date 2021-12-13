@@ -1,5 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
+import { splitLines } from 'utils/Utils';
 
 describe('<Day5 />', () => {
   interface Point {
@@ -528,9 +529,7 @@ describe('<Day5 />', () => {
 764,830 -> 91,157
 `;
 
-    const lines: Line[] = rawInput
-      .split(/\n/)
-      .filter((value) => value !== '')
+    const lines: Line[] = splitLines(rawInput)
       .map((value) => value.trim().split(/\D+/))
       .map((value) => value.map((nb) => Number.parseInt(nb)))
       .map((value) => ({

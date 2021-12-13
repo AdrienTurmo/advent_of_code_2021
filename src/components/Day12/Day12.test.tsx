@@ -1,5 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
+import { splitLines } from 'utils/Utils';
 
 describe('<Day12 />', () => {
   it('should work', () => {
@@ -73,10 +74,7 @@ qi-VO
 br-TF
 `;
 
-    const inputs = rawInput
-      .split('\n')
-      .filter((value) => value !== '')
-      .map((value) => value.split('-'));
+    const inputs = splitLines(rawInput).map((value) => value.split('-'));
 
     const fromStart: string[] = [];
     const mapPoints: Map<string, string[]> = new Map();

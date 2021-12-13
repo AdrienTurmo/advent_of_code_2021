@@ -1,5 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
+import { splitLines } from 'utils/Utils';
 
 describe('<Day10 />', () => {
   it('should work', () => {
@@ -124,7 +125,7 @@ describe('<Day10 />', () => {
 [{{<({((<([(<[<>{}](()[])><{[]()}<<>()>>)[<(<>)(<>())>)]({({()()}[()[]])}<[[[]<>]<{}<>>](({}[]){
 `;
 
-    const inputs = rawInput.split('\n').filter((value) => value !== '');
+    const inputs = splitLines(rawInput);
 
     const mapChars = new Map([
       ['(', ')'],

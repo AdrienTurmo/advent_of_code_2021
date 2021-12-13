@@ -1,5 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
+import { splitLines } from 'utils/Utils';
 
 describe('<Day13 />', () => {
   interface Point {
@@ -877,14 +878,10 @@ fold along y=13
 fold along y=6
 `;
 
-    const inputPoints: Point[] = rawInputPoints
-      .split('\n')
-      .filter((value) => value !== '')
+    const inputPoints: Point[] = splitLines(rawInputPoints)
       .map((line) => line.split(','))
       .map((point) => ({ x: Number.parseInt(point[0]), y: Number.parseInt(point[1]) }));
-    const inputFold = rawInputFoldings
-      .split('\n')
-      .filter((value) => value !== '')
+    const inputFold = splitLines(rawInputFoldings)
       .map((line) => line.split(' ')[2].split('='))
       .map((line) => ({ direction: line[0] as FoldDirection, value: Number.parseInt(line[1]) }));
 

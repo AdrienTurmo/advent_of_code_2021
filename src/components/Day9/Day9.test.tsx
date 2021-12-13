@@ -2,17 +2,18 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Day9 } from './Day9';
+import { logTable, splitLines } from 'utils/Utils';
 
 describe('<Day9 />', () => {
   it('should work', () => {
-    const rawExampleInputs = `
+    const rawExampleInput = `
 2199943210
 3987894921
 9856789892
 8767896789
 9899965678
 `;
-    const rawInputs = `
+    const rawInput = `
 8754399998765678934569897649898767987432123986543213567997681024589763459854327895454567899979876567
 9865989879854578923998789438789656795421013499854101278976542137678954598765456964323456789768995456
 1979879965913569899878679626598947987532194987653232389898756398889865679876587953212457899656789345
@@ -115,16 +116,11 @@ describe('<Day9 />', () => {
 8765678799989876621245789999876786798998765432123456789432123987654345698775431234569987796545689999
 `;
 
-    const inputs = rawInputs
-      .split('\n')
-      .filter((value) => value !== '')
+    const inputs = splitLines(rawInput)
       .map((line) => line.split('').map((n) => Number.parseInt(n)));
 
     const height = inputs.length;
     const length = inputs[0].length;
-
-    const logTable = (table: (string | number)[][]) =>
-      console.log(table.reduce((p, line) => p + '\n' + line.reduce((pLine, el) => `${pLine}${el}`, ''), ''));
 
     // let risk = 0;
     //

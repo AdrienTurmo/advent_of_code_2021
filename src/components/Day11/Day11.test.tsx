@@ -2,11 +2,10 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Day11 } from './Day11';
+import { splitLines } from 'utils/Utils';
 
 describe('<Day11 />', () => {
   it('should work', () => {
-    const logTable = (table: (string | number)[][]) =>
-      console.log(table.reduce((p, line) => p + '\n' + line.reduce((pLine, el) => `${pLine}${el}`, ''), ''));
 
     const rawExampleInput = `
 5483143223
@@ -34,9 +33,7 @@ describe('<Day11 />', () => {
 1828544563
 `;
 
-    const input = rawInput
-      .split('\n')
-      .filter((value) => value !== '')
+    const input = splitLines(rawInput)
       .map((value) => value.split('').map((value1) => Number.parseInt(value1)));
 
     let flashes = 0;
