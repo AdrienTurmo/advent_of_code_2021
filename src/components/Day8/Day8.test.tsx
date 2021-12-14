@@ -2,7 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import { Day8 } from './Day8';
-import { splitLines } from 'utils/Utils';
+import { countLetters, splitLines } from 'utils/Utils';
 
 describe('<Day8 />', () => {
   it('should work', () => {
@@ -257,13 +257,7 @@ cebfa aebcfg cgbfa egbf ceb cbgfeda ebcadg bfagdc eacfd be | ebfgac ebc bagecf g
       const left = line[0] || [];
       const right = line[1] || [];
 
-      const occurrences = left
-        .join('')
-        .split('')
-        .reduce((total: Record<string, number>, letter) => {
-          total[letter] ? total[letter]++ : (total[letter] = 1);
-          return total;
-        }, {});
+      const occurrences = countLetters(left.join(''));
 
       return Number.parseInt(
         right
