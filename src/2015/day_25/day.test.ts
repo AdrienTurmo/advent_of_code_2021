@@ -1,5 +1,6 @@
-const uint16 = (n: number) => n & 0xffff;
 it('day25', () => {
+  const uint16 = (n: number) => n & 0xffff;
+
   let start = 20151125;
 
   const line = 3029;
